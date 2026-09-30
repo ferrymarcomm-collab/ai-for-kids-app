@@ -1,0 +1,6 @@
+{
+  "name": "AI FOR KIDS",
+  "description": "Platform edukasi logika, coding, dan AI untuk anak usia 8–12 tahun melalui kurikulum berjenjang dan project-based learning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
