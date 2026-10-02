@@ -20,6 +20,7 @@ import { StudentProfileModal } from './StudentProfileModal';
 import { OnboardingModal } from './OnboardingModal';
 import { isSoundEnabled, setSoundEnabled, playSoftClick } from '../utils/audio';
 import { AuthModal } from './AuthModal';
+import { AdminPanel } from './AdminPanel';
 
 export const Navbar: React.FC = () => {
   const { activeTab, setActiveTab, showAllJilids, progress, authUser, isPremium, setAuthModalOpen, setAuthMode, signOut } = useApp();
@@ -27,7 +28,7 @@ export const Navbar: React.FC = () => {
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const [onboardingOpen, setOnboardingOpen] = useState(false);
   const [soundOn, setSoundOn] = useState(true);
-
+  const [adminPanelOpen, setAdminPanelOpen] = useState(false);
   useEffect(() => {
     setSoundOn(isSoundEnabled());
   }, []);
@@ -136,7 +137,14 @@ export const Navbar: React.FC = () => {
                 <Compass className="w-4 h-4 text-amber-600" />
                 <span className="hidden md:inline">Panduan</span>
               </button>
-
+              {authUser?.email?.toLowerCase() === 'ferrymarcomm@gmail.com' && (
+  <button
+    onClick={() => setAdminPanelOpen(true)}
+    className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-purple-50 hover:bg-purple-100 border border-purple-200 text-purple-800 text-xs font-black"
+  >
+    ADMIN
+  </button>
+)}
               {/* Account Button */}
               {authUser ? (
                 <button
@@ -290,7 +298,9 @@ export const Navbar: React.FC = () => {
       </div>
 
       <AuthModal />
-
+      {adminPanelOpen && (
+  <AdminPanel onClose={() => setAdminPanelOpen(false)} />
+)}
       {/* Student Profile Modal */}
       <StudentProfileModal
         isOpen={profileModalOpen}
