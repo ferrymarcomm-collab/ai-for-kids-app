@@ -107,3 +107,30 @@ export async function getPremiumStatus(userId: string, accessToken: string) {
   if (row.expires_at && new Date(row.expires_at).getTime() < Date.now()) return false;
   return true;
 }
+
+
+export async function activatePremiumForUser(email: string, accessToken: string) {
+  requireConfig();
+  const response = await fetch(`${SUPABASE_URL}/functions/v1/admin-activate-premium`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_PUBLISHABLE_KEY!,
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, product_code: 'AI_FOR_KIDS_FULL' }),
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.error || 'Aktivasi Premium gagal.');
+  }
+  return data as {
+    ok: boolean;
+    email: string;
+    user_id: string;
+    product_code: string;
+    access_level: string;
+    status: string;
+  };
+}
