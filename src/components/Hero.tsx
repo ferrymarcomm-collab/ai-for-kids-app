@@ -13,6 +13,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { JILID_LIST, MODULES_DATA } from '../data/curriculum';
+import aibaRobot from '../assets/aiba-robot.svg';
 
 export const JILID_WORLDS: Record<
   number,
@@ -158,7 +159,7 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-amber-300">
               <img
-                src="/src/assets/aiba-robot.svg"
+                src={aibaRobot}
                 alt="AIBA"
                 className="w-8 h-9 object-cover rounded-xl shadow-md animate-bounce"
                 style={{ animationDuration: '3s' }}
