@@ -341,9 +341,13 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({ moduleId, onFinish }) =>
           </p>
           {currentQuestion.kidTip && (
             <div className="text-xs font-semibold text-amber-900 bg-white/80 p-3 rounded-2xl border border-amber-200 flex items-start gap-2">
-              <span className="shrink-0 text-base">🤖</span>
+              <img
+                src={aibaRobot}
+                alt="AIBA"
+                className="shrink-0 w-8 h-9 object-cover rounded-xl shadow-sm"
+              />
               <div>
-                <strong className="block text-[11px] uppercase tracking-wider text-amber-800">Tips dari Kiko:</strong>
+                <strong className="block text-[11px] uppercase tracking-wider text-amber-800">Tips dari AIBA:</strong>
                 <span>{currentQuestion.kidTip}</span>
               </div>
             </div>
