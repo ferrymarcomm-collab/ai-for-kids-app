@@ -157,8 +157,13 @@ export const Hero: React.FC = () => {
           {/* Main Greeting (Child-friendly, growth-mindset) */}
           <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-amber-300">
-              <span className="text-base">🤖</span>
-              <span>Kiko Si Pendamping Cerdas Siap Membantumu!</span>
+              <img
+                src="/src/assets/aiba-robot.svg"
+                alt="AIBA"
+                className="w-8 h-9 object-cover rounded-xl shadow-md animate-bounce"
+                style={{ animationDuration: '3s' }}
+              />
+              <span>AIBA Si Pendamping Cerdas Siap Membantumu!</span>
             </div>
 
             {/* Sapaan sesuai brief: "Halo, Coder! 👋" dan "Siap menjelajah dunia AI hari ini?" */}
