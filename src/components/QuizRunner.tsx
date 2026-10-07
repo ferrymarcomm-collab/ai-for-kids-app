@@ -12,6 +12,7 @@ import {
   Sparkles,
   BookOpen,
 } from 'lucide-react';
+import aibaRobot from '../assets/aiba-robot.svg';
 import {
   playChimeSound,
   playEncouragingSound,
